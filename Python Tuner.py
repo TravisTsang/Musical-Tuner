@@ -19,7 +19,7 @@ def findFrequency(duration, samplingRate):
     sound = sound * np.hanning(len(sound)) # Apply Hanning window to minimize spectral leakage
     sound = abs(np.fft.rfft(sound)) # Take magnitude
     hpsSpectrum = sound.copy()
-    roughFrequency = np.argmax(sound) * samplingRate / sound
+    roughFrequency = np.argmax(sound) * samplingRate / len(sound)
     harmonic = 0
     if roughFrequency < 250:
         harmonic = 3
@@ -55,7 +55,7 @@ def noteToFreq(noteName):
 
 def main():
     noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-    samplingRate = 176400
+    samplingRate = 44100
     duration = 1
     threshold = 1
     
