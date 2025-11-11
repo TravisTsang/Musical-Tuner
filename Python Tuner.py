@@ -65,5 +65,4 @@ def main():
     frequency = round(frequency, 2) # Rounds frequency to 2 decimal places
     
     print(f"{frequency} Hz:")
-while True:
-    main()
+main()
